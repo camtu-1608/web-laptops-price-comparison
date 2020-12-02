@@ -1,0 +1,31 @@
+{
+  "name": "web-laptops-price-comparison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
+  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camtu-1608/web-laptops-price-comparison.git"
+  },
+  "author": "camtu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camtu-1608/web-laptops-price-comparison/issues"
+  },
+  "homepage": "https://github.com/camtu-1608/web-laptops-price-comparison#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+  
+}
