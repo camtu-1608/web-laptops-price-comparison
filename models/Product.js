@@ -41,6 +41,6 @@ const findById = async (id) => {
 module.exports= {
     listProducts: listProducts,
     filterByWebName: filterByWebName,
-    findCourseById: findById,
+    findProductById: findById,
     TopTrending: topTrending
 };

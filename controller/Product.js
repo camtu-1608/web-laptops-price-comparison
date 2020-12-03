@@ -1,7 +1,7 @@
 const {
     TopTrending,
     filterByWebName,
-    findCourseById,
+    findProductById,
 } = require("../models/Product");
 
 exports.TopTrending = async (req, res) => {
@@ -35,7 +35,7 @@ exports.filterByWebName = async (req, res) => {
 
 exports.findById = async (req, res) => {
     try {
-      let response = await findCourseById(req.params.id);
+      let response = await findProductById(req.params.id);
       return res.status(200).json({
         response,
       });

@@ -1,43 +1,46 @@
-import React, { useState, useEffect } from "react";
+import './App.css';
+import NavBar from './components/NavBar';
+import SearchBar from './components/SearchBar';
+import React from 'react';
+import BrandIcons from './components/BrandIcons'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Trending from './components/Trending';
+import Products from './components/Products';
 
-// SERVICES
-import productService from './services/productService';
 
-function App() {
-  const [products, setproducts] = useState(null);
 
-  useEffect(() => {
-    if(!products) {
-      getProducts();
-    }
-  })
 
-  const getProducts = async () => {
-    let res = await productService.getAll();
-    console.log(res);
-    setproducts(res);
-  }
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
-  const renderProduct = product => {
+
+
+const App = () => {
     return (
-      <li key={product._id} className="list__item product">
-        <h3 className="product__name">{product.Ten}</h3>
-        <p className="product__Link">{product.Link}</p>
-      </li>
+      <div class='page'>
+        <div class='background'>
+          <NavBar/>
+          <div class='search-title'>
+              <div class= 'title'>
+                The Laptops App
+              </div>
+              <div class= 'subtitle'>
+                Search Laptops and Compare Prices
+              </div>
+          </div>
+          <SearchBar />
+          <BrandIcons/>
+        </div>
+        <Switch>
+          <Route exact path={process.env.PUBLIC_URL+'/'} component={Trending}/>
+          <Route path={process.env.PUBLIC_URL +'/search/:key'} component={Products}/>
+        </Switch>
+      </div>
     );
-  };
-
-  return (
-    <div className="App">
-      <ul className="list">
-        {(products && products.length > 0) ? (
-          products.map(product => renderProduct(product))
-        ) : (
-          <p>No products found</p>
-        )}
-      </ul>
-    </div>
-  );
 }
+
 
 export default App;
