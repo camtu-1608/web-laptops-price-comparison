@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const DATA = "DataProducts";
+//var textSearch = require('mongoose-text-search');
 
 const products = new Schema(
     {
@@ -18,6 +19,11 @@ const products = new Schema(
     },
     { collection: DATA }
 );
+products.index({Ten:'text'});
+
+
+Products=mongoose.model('products',products)
+//products.plugin(textSearch);
 
 const listProducts = mongoose.model(DATA, products)
 
@@ -42,5 +48,6 @@ module.exports= {
     listProducts: listProducts,
     filterByWebName: filterByWebName,
     findProductById: findById,
-    TopTrending: topTrending
+    TopTrending: topTrending,
+    Products:Products
 };

@@ -2,7 +2,27 @@ const {
     TopTrending,
     filterByWebName,
     findProductById,
+    Products
 } = require("../models/Product");
+
+exports.searchName = async(req,res) =>{
+  var query =req.params.query;
+  //query.replace(/-/g,' ');
+  await Products.find( {$text: { $search: query }},
+    { score: { $meta: "textScore" } }, (findErr, findRes) => {
+    if (findErr) {
+    //log error here
+    res.status(200).send({
+    message: 'Failed: to search via index',
+    success: true,
+    result: findErr
+    });
+    }
+    else {
+    res.send(findRes);
+    }
+  }).sort({ score: { $meta: "textScore" } });
+}
 
 exports.TopTrending = async (req, res) => {
     try {
