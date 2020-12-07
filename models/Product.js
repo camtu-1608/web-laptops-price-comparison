@@ -19,7 +19,7 @@ const products = new Schema(
     },
     { collection: DATA }
 );
-products.index({Ten:'text'});
+products.index({Ten:'text',Hang_SX:'text'});
 
 
 Products=mongoose.model('products',products)

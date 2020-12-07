@@ -26,7 +26,8 @@ const Products = ({ match, location }) => {
         top: 100,
         behavior: 'smooth'
       })
-      fetch("https://sneakyapi.herokuapp.com/search/" + key, {
+      fetch("http://localhost:5000/product/find/query=" + key, {
+      // fetch("https://sneakyapi.herokuapp.com/search/" + key, {
           headers: myHeaders,
         })
         .then(response => response.json())
@@ -53,7 +54,7 @@ const Products = ({ match, location }) => {
             ) : (
             sneakers.map((sneaker, index) => (
 
-            <MiniCard key={`${index}-${sneaker.shoename}`} sneaker={sneaker} />
+            <MiniCard key={`${index}-${sneaker.Ten}`} sneaker={sneaker} />
             ))
             )}
           </div>

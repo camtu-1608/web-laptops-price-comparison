@@ -54,12 +54,12 @@ const ProductCard = (props) => {
               <div>Not Available</div>}
 
               <Tabs defaultActiveKey="description">
-                <Tab class="about" eventKey="description" title="About">
+                {/* <Tab class="about" eventKey="description" title="About">
                   <div class='about'>
                     {props.description}
                   </div>
 
-                </Tab>
+                </Tab> */}
                 <Tab class="pull-right" eventKey="details" title="Details">
                   <div class='left-col'>
                     <ul class='details'>

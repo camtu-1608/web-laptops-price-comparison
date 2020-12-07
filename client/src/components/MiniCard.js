@@ -18,17 +18,19 @@ const MiniCard = (props) => {
   const [fetchSneaker, triggerFetchSneaker] = useState(false);
   var sneaker = props.sneaker;
   useEffect(() => {
-    if (fetchSneaker) {
-      fetch("https://sneakyapi.herokuapp.com/id/" + sneaker.styleID + '/prices', {
-          headers: myHeaders,
-        })
-        .then(response => response.json())
-        .then(jsonResponse => {
-          setNewSneaker(jsonResponse);
+    // if (fetchSneaker) {
+    //   fetch("https://sneakyapi.herokuapp.com/id/" + sneaker.styleID + '/prices', {
+    //       headers: myHeaders,
+    //     })
+    //     .then(response => response.json())
+    //     .then(jsonResponse => {
+    //       setNewSneaker(jsonResponse);
 
-        });
-    }
-  }, [fetchSneaker]);
+    //     });
+    // }
+    setNewSneaker(props.sneaker)
+  }//, [fetchSneaker]
+  );
 
   const showCard = () => {
     if (showProductCard == false) {
@@ -67,9 +69,9 @@ const MiniCard = (props) => {
     minPrice = sneaker.lowestResellPrice.flightClub;
     minPriceLink = sneaker.resellLinks.flightClub;
   }
-  if (sneaker.thumbnail) {
+  if (sneaker.Img) {
     var imageClass = 'sneaker-image';
-    var sneakerImage = sneaker.thumbnail;
+    var sneakerImage = sneaker.Img;
   } else {
     var imageClass = 'default-image';
     var sneakerImage = sneaksLogo;
@@ -105,12 +107,12 @@ const MiniCard = (props) => {
           style={{ width: '15rem', height: '17rem' }}>
           <Card.Img class={imageClass} variant="top" src={sneakerImage} />
           <Card.Body class='mini-card-body'>
-            <Card.Title class='card-title'>{sneaker.shoeName}</Card.Title>
+            <Card.Title class='card-title'>{sneaker.Ten}</Card.Title>
             <CardText />
           </Card.Body>
         </Card>
 
-        {fetchSneaker && <ProductCard sneaker={newSneaker} name={sneaker.shoeName} description={sneaker.description}
+        {fetchSneaker && <ProductCard sneaker={newSneaker} name={sneaker.Ten} description={sneaker.description}
           imageClass={imageClass} image={sneakerImage} minPriceLink={minPriceLink}minPrice={minPrice}
           logo={logo}show={showProductCard} onHide={hideCard}></ProductCard>
         }

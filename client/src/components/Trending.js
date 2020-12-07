@@ -4,8 +4,8 @@ import Spinner from 'react-bootstrap/Spinner'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 
-const SNEAKS_API = "https://sneakyapi.herokuapp.com/home"
-
+//const SNEAKS_API = "https://sneakyapi.herokuapp.com/home"
+//const Laptops_API="http://localhost:5000/product/toptrending"
 const Trending = () =>{
 
   const [loading, setLoading] = useState(true);
@@ -13,15 +13,17 @@ const Trending = () =>{
   const [sneakers, setSneakers] = useState([]);
   const [allSneakers, setAllSneakers] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
-  const myHeaders = new Headers({
-    "Content-Type": "application/json",
-    Accept: "application/json"
-  });
+  // const myHeaders = new Headers({
+  //   "Content-Type": "application/json",
+  //   Accept: "application/json"
+  //});
 
   useEffect(() => { 
     setErrorMessage(null) 
-    fetch(SNEAKS_API, {
-      headers: myHeaders,
+    fetch("http://localhost:5000/product/toptrending",{method:"GET"}, {
+      headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json"}),
     })
       .then(response => response.json())
       .then(jsonResponse => {
@@ -32,7 +34,7 @@ const Trending = () =>{
        
       })
       .catch(err => setErrorMessage("Could not connect to the Sneaks-API"));
-  }, []);
+  }, [seeAll]);
 
   const handleClick = () => {
     setSeeAll(true);
@@ -48,14 +50,14 @@ const Trending = () =>{
     if(seeAll){
       return(
         allSneakers.map((sneaker, index) => (
-          <MiniCard key={`${index}-${sneaker.shoename}`} sneaker={sneaker} />)
+          <MiniCard key={`${index}-${sneaker.Ten}`} sneaker={sneaker} />)
           )
       )
     }
     else{
       return(
         sneakers.map((sneaker, index) => (
-          <MiniCard key={`${index}-${sneaker.shoename}`} sneaker={sneaker} />))
+          <MiniCard key={`${index}-${sneaker.Ten}`} sneaker={sneaker} />))
       )
     }
   }
@@ -64,7 +66,7 @@ const Trending = () =>{
 
   return(
     <div class='product-section'>
-      <h2 class='title'>Trending Now {seeAll==false && <button onClick={()=>handleClick()} class="see-all">
+      <h2 class='title'>Trending Now {seeAll===false && <button onClick={()=>handleClick()} class="see-all">
           <div class="see-all-text"> See All </div>
         </button>}</h2>
       <div class='product-page'>

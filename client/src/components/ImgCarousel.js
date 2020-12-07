@@ -4,9 +4,9 @@ const ImgCarousel = (props) => {
     var sneaker = props.sneaker;
 
     const images = () =>{
-        if(sneaker?.imageLinks.length > 0){
+        if(sneaker?.Img.length > 0){
             return (
-                sneaker.imageLinks.map(image=>(
+                sneaker.Img.map(image=>(
                 <Carousel.Item>
                     <img class='goat-images' src={image}></img>
                 </Carousel.Item>

@@ -6,9 +6,10 @@ const {
 } = require("../models/Product");
 
 exports.searchName = async(req,res) =>{
-  var query =req.params.query;
+  const query =req.params.query;
   //query.replace(/-/g,' ');
-  await Products.find( {$text: { $search: query }},
+  //const query='macbook pro i5'
+  Products.find( {$text: { $search: query }},
     { score: { $meta: "textScore" } }, (findErr, findRes) => {
     if (findErr) {
     //log error here
