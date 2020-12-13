@@ -77,14 +77,16 @@ const MiniCard = (props) => {
     var sneakerImage = sneaksLogo;
   }
 
+  //var tien = "Gia-Tien";
+  var price = sneaker.GiaHT[0];
 
 
   const CardText = () => {
-    if (minPrice) {
+    if (price) {
       return (
          <Card.Text class='mini-card-text'>
            <div>From</div>
-           <div class='mini-card-price'>${minPrice} <span class='on-text'> on</span><img class='mini-logo'
+           <div class='mini-card-price'>{price} <span class='on-text'> on</span><img class='mini-logo'
                src={logo}></img></div>
          </Card.Text>
     );

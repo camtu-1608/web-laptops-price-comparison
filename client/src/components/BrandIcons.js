@@ -1,10 +1,10 @@
 import cellphoneLogo from '../images/cellphones.png'
-import fadoLogo from '../images/fado-vn-logo.png'
-import fptLogo from '../images/fptshop.png'
-import nkLogo from '../images/logo-Nguyễn-Kim.png'
-import pvLogo from '../images/phongvu.jpg'
+import fadoLogo from '../images/fado.png'
+import fptLogo from '../images/fpt-shop.png'
+import nkLogo from '../images/nguyen-kim.png'
+import pvLogo from '../images/phongvu.png'
 import vtLogo from '../images/viettelstore.png'
-import tgddLogo from '../images/the-gioi-di-dong-logo.png'
+import tgddLogo from '../images/thegioididong.png'
 import React from 'react';
 
 
