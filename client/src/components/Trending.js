@@ -66,7 +66,7 @@ const Trending = () =>{
 
   return(
     <div class='product-section'>
-      <h2 class='title'>Trending Now {seeAll===false && <button onClick={()=>handleClick()} class="see-all">
+      <h2 class='title'>Trending Now {seeAll==false && <button onClick={()=>handleClick()} class="see-all">
           <div class="see-all-text"> See All </div>
         </button>}</h2>
       <div class='product-page'>

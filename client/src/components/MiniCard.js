@@ -71,7 +71,7 @@ const MiniCard = (props) => {
   }
   if (sneaker.Img) {
     var imageClass = 'sneaker-image';
-    var sneakerImage = sneaker.Img;
+    var sneakerImage = sneaker.Img[0];
   } else {
     var imageClass = 'default-image';
     var sneakerImage = sneaksLogo;
