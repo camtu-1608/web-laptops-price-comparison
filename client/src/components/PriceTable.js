@@ -38,57 +38,6 @@ const PriceTable = (props) =>{
 
     return(
 <div class='table-card scroll-bar'>
-    <Table responsive>
-        <thead>
-            <tr>
-                <th>US Size</th>
-                {Array.from(shoeSizes).map((size, index) => (
-                <th key={index}> {size} </th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td onClick={()=> {window.open(sneaker.resellLinks?.stockX)}}><img src={stockXLogo}></img></td>
-                {Array.from(shoeSizes).map((size, index) => (
-
-                <td key={index}> {resellPrices?.stockX&&resellPrices?.stockX[size] ? <a
-                        class={resellPrices?.stockX&&isMinPrice(resellPrices?.stockX[size], size)}
-                        href={sneaker.resellLinks?.stockX} target="_blank">${resellPrices.stockX[size]} </a>: '--'}</td>
-                ))}
-            </tr>
-            <tr>
-                <td onClick={()=> {sneaker.resellLinks?.flightClub &&
-                    window.open(sneaker.resellLinks?.flightClub)}}><img src={flightClubLogo}></img></td>
-                {Array.from(shoeSizes).map((size, index) => (
-                <td key={index}>{resellPrices?.flightClub && resellPrices?.flightClub[size] ? <a
-                        class={resellPrices?.flightClub&&isMinPrice(resellPrices?.flightClub[size],
-                        size)}href={sneaker.resellLinks?.flightClub}
-                        target="_blank">${resellPrices.flightClub[size]}</a>: '--'}</td>
-                ))}
-            </tr>
-            <tr>
-                <td class='goat-row' onClick={()=> {sneaker.resellLinks?.goat &&
-                    window.open(sneaker.resellLinks?.goat)}}><img src={goatLogo}></img></td>
-                {Array.from(shoeSizes).map((size, index) => (
-                <td key={index}> {resellPrices?.goat &&resellPrices?.goat[size] ? <a
-                        class={resellPrices?.goat&&isMinPrice(resellPrices?.goat[size],
-                        size)}href={sneaker.resellLinks?.goat} target="_blank">${resellPrices.goat[size]} </a>: '--'}
-                </td>
-                ))}
-            </tr>
-            <tr>
-                <td onClick={()=> {sneaker.resellLinks?.stadiumGoods &&
-                    window.open(sneaker.resellLinks?.stadiumGoods)}}><img src={stadiumGoodsLogo}></img></td>
-                {Array.from(shoeSizes).map((size, index) => (
-                <td key={index}> {resellPrices?.stadiumGoods &&resellPrices?.stadiumGoods[size] ? <a
-                        class={resellPrices?.stadiumGoods&&isMinPrice(resellPrices?.stadiumGoods[size],
-                        size)}href={sneaker.resellLinks?.stadiumGoods}
-                        target="_blank">${resellPrices.stadiumGoods[size]} </a>: '--'}</td>
-                ))}
-            </tr>
-        </tbody>
-    </Table>
 </div>
     )
 }

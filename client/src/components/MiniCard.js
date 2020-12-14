@@ -78,7 +78,7 @@ const MiniCard = (props) => {
   }
 
   //var tien = "Gia-Tien";
-  var price = sneaker.GiaHT[0];
+  var price = sneaker.GiaHT[0].Price;
 
 
   const CardText = () => {
@@ -115,7 +115,7 @@ const MiniCard = (props) => {
         </Card>
 
         {fetchSneaker && <ProductCard sneaker={newSneaker} name={sneaker.Ten} description={sneaker.description}
-          imageClass={imageClass} image={sneakerImage} minPriceLink={minPriceLink}minPrice={minPrice}
+          imageClass={imageClass} image={sneakerImage} minPriceLink={minPriceLink}minPrice={price}
           logo={logo}show={showProductCard} onHide={hideCard}></ProductCard>
         }
       </a>
