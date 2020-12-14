@@ -7,13 +7,13 @@ const products = new Schema(
     {
         link: String,
         ngay_update: String,
-        Gia_HT: {ThoiGian: String,GiaTien:String},
+        Gia_HT: {Time: String,Price:String},
         Hang_SX: String,
         Img: [String],
-        Info:[{
-        Info_name:String,
-        Info_text:String
-        }],
+        Info:{
+        Info_name:[String],
+        Info_text:[String]
+        },
         Ten:String,
         Web:String
     },
