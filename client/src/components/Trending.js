@@ -66,17 +66,7 @@ const Trending = () =>{
 
   return(
     <div class='product-section'>
-      <h2 class='title'>Trending Now {seeAll==false && <button onClick={()=>handleClick()} class="see-all">
-          <div class="see-all-text"> See All </div>
-        </button>}</h2>
-      <div class='product-page'>
-        {loading && !errorMessage ? (
-        <Spinner class='spinners' animation="border" variant="secondary" role="status"></Spinner>
-        ) : errorMessage ? (
-        <div className="errorMessage">{errorMessage}</div>
-        ) : (
-        display())}
-      </div>
+      <h2 class='title'>Copyright by TuDoi</h2>
     </div>
   )
 }

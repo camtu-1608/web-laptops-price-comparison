@@ -21,8 +21,8 @@ import {
 const App = () => {
     return (
       <div class='page'>
+        <NavBar/>
         <div class='background'>
-          <NavBar/>
           <div class='search-title'>
               <div class= 'title'>
                 The Laptops App

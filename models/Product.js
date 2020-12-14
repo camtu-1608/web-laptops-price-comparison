@@ -7,6 +7,7 @@ const products = new Schema(
     {
         link: String,
         ngay_update: String,
+<<<<<<< HEAD
         Gia_HT: {Time: String,Price:String},
         Hang_SX: String,
         Img: [String],
@@ -14,6 +15,15 @@ const products = new Schema(
         Info_name:[String],
         Info_text:[String]
         },
+=======
+        GiaHT: [{Time: String,Price:String}],
+        Hang_SX: String,
+        Img: [String],
+        Info:[{
+          Info_name:[String],
+          Info_text:[String]
+        }],
+>>>>>>> 4794dd6fec63206c641ce3efd0d3a48ec3766e2b
         Ten:String,
         Web:String
     },

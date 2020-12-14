@@ -18,7 +18,7 @@ const ProductCard = (props) => {
             setLoading(false);
         }
     }, );
-
+    console.log(sneaker);
     return(
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
           <div class="procard">
@@ -44,7 +44,7 @@ const ProductCard = (props) => {
               <h2>{props.name}</h2>
               {props.minPrice?<div>
                 <div class='from-text'>From</div>
-                <div class='card-price'>${props.minPrice} <span class='on-text'> on</span> <img class='logo'
+                <div class='card-price'>VND {props.minPrice} <span class='on-text'> on</span> <img class='logo'
                     src={props.logo}></img>
                   <Button onClick={()=> {window.open(props.minPriceLink, '_blank')}} class='buy-button'
                     variant="secondary" size="lg">
@@ -63,7 +63,7 @@ const ProductCard = (props) => {
                 <Tab class="pull-right" eventKey="details" title="Details">
                   <div class='left-col'>
                     <ul class='details'>
-                      <li><span class='tag'>Make:</span> {sneaker.make}</li>
+                      <li><span class='tag'>Make:</span> {sneaker.HangSX}</li>
                       <li><span class='tag'>Colorway:</span> {sneaker.colorway}</li>
                       <li><span class='tag'>Style ID:</span> {sneaker.styleID}</li>
                       <li><span class='tag'>Release Date:</span> {sneaker.releaseDate}</li>
@@ -75,12 +75,6 @@ const ProductCard = (props) => {
                   </div>
                 </Tab>
               </Tabs>
-            </div>
-            <div class='price-table'>
-              {loading ? <div class="spinner">
-                <Spinner animation="border" variant="secondary" role="status"></Spinner>
-              </div>
-              :<PriceTable sneaker={sneaker}></PriceTable>}
             </div>
           </div>
         </Modal>
