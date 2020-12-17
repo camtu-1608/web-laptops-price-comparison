@@ -18,7 +18,8 @@ const MiniCard = (props) => {
   const [fetchSneaker, triggerFetchSneaker] = useState(false);
   var sneaker = props.sneaker;
   useEffect(() => {
-    // if (fetchSneaker) {
+    if (fetchSneaker) {
+      setNewSneaker(props.sneaker)
     //   fetch("https://sneakyapi.herokuapp.com/id/" + sneaker.styleID + '/prices', {
     //       headers: myHeaders,
     //     })
@@ -28,8 +29,9 @@ const MiniCard = (props) => {
 
     //     });
     // }
-    setNewSneaker(props.sneaker)
-  }//, [fetchSneaker]
+    //setNewSneaker(sneaker)
+  }
+  }, [fetchSneaker]
   );
 
   const showCard = () => {
@@ -114,8 +116,8 @@ const MiniCard = (props) => {
           </Card.Body>
         </Card>
 
-        {fetchSneaker && <ProductCard sneaker={newSneaker} name={sneaker.Ten} description={sneaker.description}
-          imageClass={imageClass} image={sneakerImage} minPriceLink={minPriceLink}minPrice={price}
+        {fetchSneaker && <ProductCard sneaker={newSneaker} name={sneaker.Ten} description={sneaker.Info}
+          imageClass={imageClass} image={sneakerImage} minPriceLink={sneaker.Link}minPrice={price}
           logo={logo}show={showProductCard} onHide={hideCard}></ProductCard>
         }
       </a>

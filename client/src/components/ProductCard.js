@@ -14,11 +14,12 @@ const ProductCard = (props) => {
 
     useEffect(() => {
         setSneaker(props.sneaker)
-        if(Object.keys(sneaker).length != 0){
+        if(Object.keys(sneaker).length !== 0){
             setLoading(false);
         }
-    }, );
-    console.log(sneaker);
+    },[props.sneaker]);
+    // console.log(sneaker);
+    
     return(
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
           <div class="procard">
@@ -46,7 +47,7 @@ const ProductCard = (props) => {
                 <div class='from-text'>From</div>
                 <div class='card-price'>VND {props.minPrice} <span class='on-text'> on</span> <img class='logo'
                     src={props.logo}></img>
-                  <Button onClick={()=> {window.open(props.minPriceLink, '_blank')}} class='buy-button'
+                  <Button onClick={()=> {window.open(sneaker.Link, '_blank')}} class='buy-button'
                     variant="secondary" size="lg">
                     Visit site
                   </Button></div>
@@ -63,7 +64,7 @@ const ProductCard = (props) => {
                 <Tab class="pull-right" eventKey="details" title="Details">
                   <div class='left-col'>
                     <ul class='details'>
-                      <li><span class='tag'>Make:</span> {sneaker.HangSX}</li>
+                      <li><span class='tag'>Make:</span> {sneaker.Info.InfoName[0]}</li>
                       <li><span class='tag'>Colorway:</span> {sneaker.colorway}</li>
                       <li><span class='tag'>Style ID:</span> {sneaker.styleID}</li>
                       <li><span class='tag'>Release Date:</span> {sneaker.releaseDate}</li>

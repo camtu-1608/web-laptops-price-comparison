@@ -11,7 +11,7 @@ const Products = ({ match, location }) => {
       Accept: "application/json"
     });
     const [loading, setLoading] = useState(true);
-    const [sneakers, setSneakers] = useState([]);
+    const [sneakers, setSneakers] = useState({});
     const [errorMessage, setErrorMessage] = useState(null);
     const {
       params: {

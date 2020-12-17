@@ -1,29 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const DATA = "DataProducts";
+//const DATA = "DataProducts";
+const DATA = "DP";
 //var textSearch = require('mongoose-text-search');
 
 const products = new Schema(
     {
         link: String,
         ngay_update: String,
-<<<<<<< HEAD
         Gia_HT: {Time: String,Price:String},
         Hang_SX: String,
         Img: [String],
         Info:{
-        Info_name:[String],
-        Info_text:[String]
+        InfoName:[String],
+        InfoText:[String]
         },
-=======
-        GiaHT: [{Time: String,Price:String}],
-        Hang_SX: String,
-        Img: [String],
-        Info:[{
-          Info_name:[String],
-          Info_text:[String]
-        }],
->>>>>>> 4794dd6fec63206c641ce3efd0d3a48ec3766e2b
         Ten:String,
         Web:String
     },
