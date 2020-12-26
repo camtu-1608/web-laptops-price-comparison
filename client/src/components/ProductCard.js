@@ -17,9 +17,15 @@ const ProductCard = (props) => {
         if(Object.keys(sneaker).length !== 0){
             setLoading(false);
         }
-    },[props.sneaker]);
+    },);
     // console.log(sneaker);
-    
+  const listInfoName=props.InfoName.map((item)=> {
+      return <li>{item}</li>
+  });
+  const listInfoText=props.InfoText.map((item)=> {
+    return <li>{item}</li>;
+  });
+
     return(
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
           <div class="procard">
@@ -27,7 +33,7 @@ const ProductCard = (props) => {
               <svg class="arrow" version="1.1" viewBox="0 0 512 512" width="512px"
                 onClick={props.onHide}xmlns="http://www.w3.org/2000/svg">
                 <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272" /></svg>
-              <div style={{cursor:"pointer"}} onClick={props.onHide}> BACK TO ALL SHOES </div>
+              <div style={{cursor:"pointer"}} onClick={props.onHide}> BACK TO ALL LAPTOPS </div>
               <svg class="heart" version="1.1" viewBox="0 0 512 512" width="512px" stroke="#727272"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -45,12 +51,15 @@ const ProductCard = (props) => {
               <h2>{props.name}</h2>
               {props.minPrice?<div>
                 <div class='from-text'>From</div>
-                <div class='card-price'>VND {props.minPrice} <span class='on-text'> on</span> <img class='logo'
-                    src={props.logo}></img>
-                  <Button onClick={()=> {window.open(sneaker.Link, '_blank')}} class='buy-button'
+                <div class='card-price'>
+                  VND {props.minPrice} 
+                  <span class='on-text'> on</span> 
+                  <img class='logo'src={props.logo}></img>
+                  </div>
+                  <Button onClick={()=> {window.open(props.minPriceLink, '_blank')}} class='buy-button'
                     variant="secondary" size="lg">
                     Visit site
-                  </Button></div>
+                  </Button>
               </div>:
               <div>Not Available</div>}
 
@@ -62,17 +71,13 @@ const ProductCard = (props) => {
 
                 </Tab> */}
                 <Tab class="pull-right" eventKey="details" title="Details">
-                  <div class='left-col'>
-                    <ul class='details'>
-                      <li><span class='tag'>Make:</span> {sneaker.Info.InfoName[0]}</li>
-                      <li><span class='tag'>Colorway:</span> {sneaker.colorway}</li>
-                      <li><span class='tag'>Style ID:</span> {sneaker.styleID}</li>
-                      <li><span class='tag'>Release Date:</span> {sneaker.releaseDate}</li>
-                      <li><span class='tag'>Retail Price:</span> ${sneaker.retailPrice}.00</li>
-                    </ul>
-
-                  </div>
-                  <div class='right-col'>
+                  <div class="row">
+                    <div class='col-lg-3 tag details left'>
+                      {listInfoName}
+                    </div>
+                    <div class='col-lg-9 tag details right'>
+                      {listInfoText}
+                    </div>
                   </div>
                 </Tab>
               </Tabs>
