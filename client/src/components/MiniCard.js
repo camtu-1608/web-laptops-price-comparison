@@ -6,12 +6,12 @@ import Card from 'react-bootstrap/Card'
 // import stadiumGoodsLogo from '../images/stadiumgoods.png'
 import sneaksLogo from '../images/Sneaks_Logo.png'
 import cellphoneLogo from '../images/cellphones.png'
-import fadoLogo from '../images/fado.png'
-import fptLogo from '../images/fpt-shop.png'
-import nkLogo from '../images/nguyen-kim.png'
-import pvLogo from '../images/phongvu.png'
-import vtLogo from '../images/viettelstore.png'
-import tgddLogo from '../images/thegioididong.png'
+import fadoLogo from '../images/fadonew.jpg'
+import fptLogo from '../images/fptnew.jpg'
+import nkLogo from '../images/nknew.jpg'
+import pvLogo from '../images/pvnew.jpg'
+import vtLogo from '../images/vtnew.jpg'
+import tgddLogo from '../images/tgddnew.jpg'
 import ProductCard from './ProductCard'
 var _ = require('lodash');
 const myHeaders = new Headers({
@@ -78,7 +78,7 @@ const MiniCard = (props) => {
   else if (sneaker.Web == 'Thế Giới Di Động') {
     logo = tgddLogo;
   }
-  else if (sneaker.Web == 'Viettelstore') {
+  else if (sneaker.Web == 'Viettel Store') {
     logo = vtLogo;
   }
   if (sneaker.Img) {
@@ -92,6 +92,7 @@ const MiniCard = (props) => {
   //var tien = "Gia-Tien";
   var len= Object.keys(sneaker.GiaHT).length;
   var price = sneaker.GiaHT[len-1].Price;
+
 
 
   const CardText = () => {
@@ -130,7 +131,7 @@ const MiniCard = (props) => {
         </Card>
 
         {fetchSneaker && <ProductCard sneaker={newSneaker} name={sneaker.Ten} InfoName={sneaker.InfoName} InfoText={sneaker.InfoText}
-           imageClass={imageClass} image={sneakerImage} minPriceLink={sneaker.Link} minPrice={price}
+           imageClass={imageClass} image={sneakerImage} minPriceLink={sneaker.Link} minPrice={price} giaHT={sneaker.GiaHT}
           logo={logo}show={showProductCard} onHide={hideCard}></ProductCard>
         }
       </a>

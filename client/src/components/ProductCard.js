@@ -5,8 +5,13 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Button from 'react-bootstrap/Button'
 import ImgCarousel from './ImgCarousel';
-import PriceTable from './PriceTable';
+//import PriceTable from './PriceTable';
 import Spinner from 'react-bootstrap/Spinner'
+//import Plot from 'react-plotly.js';
+import Plotly from "plotly.js-basic-dist";
+
+import createPlotlyComponent from "react-plotly.js/factory";
+const Plot = createPlotlyComponent(Plotly);
 
 const ProductCard = (props) => {
     const [loading, setLoading] = useState(true);
@@ -25,6 +30,17 @@ const ProductCard = (props) => {
   const listInfoText=props.InfoText.map((item)=> {
     return <li>{item}</li>;
   });
+
+  const listGiaHTTime=props.giaHT.map((item)=>{
+    var listTime=[];
+    listTime=item.Time;
+    return listTime;
+  })
+  const listGiaHTPrice=props.giaHT.map((item)=>{
+    var listPrice=[];
+    listPrice=parseInt(item.Price.replace(/[.]/g,""));
+    return listPrice;
+  })
 
     return(
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -64,12 +80,29 @@ const ProductCard = (props) => {
               <div>Not Available</div>}
 
               <Tabs defaultActiveKey="description">
-                {/* <Tab class="about" eventKey="description" title="About">
+                <Tab class="about" eventKey="description" title="Chart">
                   <div class='about'>
-                    {props.description}
+                    {/* {props.description} */}
+                      <Plot
+                        data={[
+                          {
+                            x: listGiaHTTime,
+                            y: listGiaHTPrice,
+                            type: 'scatter',
+                            mode: 'lines',
+                            line: {color: 'red'},
+                          }
+                        ]}
+                        layout={{width: 720, height: 450, title: 'Biểu đồ'},{
+                          yaxis: {
+                          //title: 'Percent',
+                          //showline: false,
+                          dtick :100000
+                        }}}
+                      />
                   </div>
 
-                </Tab> */}
+                </Tab> 
                 <Tab class="pull-right" eventKey="details" title="Details">
                   <div class="row">
                     <div class='col-lg-3 tag details left'>
