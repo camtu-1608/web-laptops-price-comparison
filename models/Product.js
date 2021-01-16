@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 //const DATA = "DataProducts";
-const DATA = "DP";
+const DATA = "DataProductWebTMDT";
 //var textSearch = require('mongoose-text-search');
 
 const products = new Schema(
@@ -20,7 +20,7 @@ const products = new Schema(
     },
     { collection: DATA }
 );
-products.index({Ten:'text',Hang_SX:'text'});
+products.index({Ten:'text',Hang_SX:'text'},{weights:{Ten:4}});
 
 
 Products=mongoose.model('products',products)
@@ -34,21 +34,9 @@ const topTrending = async () => {
     return await listProducts.find().skip(skip).limit(limit);
 }
 
-const filterByWebName = async (Web) => {
-    const filter = {
-      Web: Web,
-    };
-    return await listProducts.find(filter);
-  };
 
-const findById = async (id) => {
-    return await list.findById(id);
-  };
 
 module.exports= {
-    listProducts: listProducts,
-    filterByWebName: filterByWebName,
-    findProductById: findById,
     TopTrending: topTrending,
     Products:Products
 };

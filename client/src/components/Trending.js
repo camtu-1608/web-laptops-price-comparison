@@ -66,7 +66,7 @@ const Trending = () =>{
 
   return(
     <div class='product-section'>
-      <h2 class='title'>Copyright by TuDoi</h2>
+      <h2 class='title'>Copyright by TuThuyBao</h2>
     </div>
   )
 }

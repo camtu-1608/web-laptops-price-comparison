@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card'
-// import stockXLogo from '../images/stockx.png'
-// import goatLogo from '../images/goat.png'
-// import flightClubLogo from '../images/flightclub.png'
-// import stadiumGoodsLogo from '../images/stadiumgoods.png'
 import sneaksLogo from '../images/Sneaks_Logo.png'
 import cellphoneLogo from '../images/cellphones.png'
 import fadoLogo from '../images/fadonew.jpg'
@@ -13,7 +9,7 @@ import pvLogo from '../images/pvnew.jpg'
 import vtLogo from '../images/vtnew.jpg'
 import tgddLogo from '../images/tgddnew.jpg'
 import ProductCard from './ProductCard'
-var _ = require('lodash');
+//var _ = require('lodash');
 const myHeaders = new Headers({
   "Content-Type": "application/json",
   Accept: "application/json"
@@ -21,12 +17,12 @@ const myHeaders = new Headers({
 
 const MiniCard = (props) => {
   const [showProductCard, setShowProductCard] = useState(false);
-  const [newSneaker, setNewSneaker] = useState({});
-  const [fetchSneaker, triggerFetchSneaker] = useState(false);
-  var sneaker = props.sneaker;
+  const [newLaptop, setNewLaptop] = useState({});
+  const [fetchLaptop, triggerFetchLaptop] = useState(false);
+  var laptop = props.laptop;
   useEffect(() => {
-    if (fetchSneaker) {
-      setNewSneaker(props.sneaker)
+    if (fetchLaptop) {
+      setNewLaptop(props.laptop)
     //   fetch("https://sneakyapi.herokuapp.com/id/" + sneaker.styleID + '/prices', {
     //       headers: myHeaders,
     //     })
@@ -38,12 +34,12 @@ const MiniCard = (props) => {
     // }
     //setNewSneaker(sneaker)
   }
-  }, [fetchSneaker]
+  }, [fetchLaptop]
   );
 
   const showCard = () => {
     if (showProductCard == false) {
-      triggerFetchSneaker(true);
+      triggerFetchLaptop(true);
       setShowProductCard(true);
     }
   }
@@ -60,38 +56,38 @@ const MiniCard = (props) => {
   //   return sneaker.lowestResellPrice[o];
   //});
 
-  if (sneaker.Web == 'Cellphones') {
+  if (laptop.Web == 'Cellphones') {
     logo = cellphoneLogo;
     // minPrice = sneaker.lowestResellPrice.stockX;
     // minPriceLink = sneaker.resellLinks.stockX;
 
-  } else if (sneaker.Web == 'Fado') {
+  } else if (laptop.Web == 'Fado') {
     logo = fadoLogo;
-  } else if (sneaker.Web == 'FPT Shop') {
+  } else if (laptop.Web == 'FPT Shop') {
     logo = fptLogo;
-  }else if (sneaker.Web == 'Nguyễn Kim') {
+  }else if (laptop.Web == 'Nguyễn Kim') {
     logo =nkLogo;
   }
-  else if (sneaker.Web == 'Phong Vũ') {
+  else if (laptop.Web == 'Phong Vũ') {
     logo = pvLogo;
   }
-  else if (sneaker.Web == 'Thế Giới Di Động') {
+  else if (laptop.Web == 'Thế Giới Di Động') {
     logo = tgddLogo;
   }
-  else if (sneaker.Web == 'Viettel Store') {
+  else if (laptop.Web == 'Viettel Store') {
     logo = vtLogo;
   }
-  if (sneaker.Img) {
+  if (laptop.Img) {
     var imageClass = 'sneaker-image';
-    var sneakerImage = sneaker.Img[0];
+    var sneakerImage = laptop.Img[0];
   } else {
     var imageClass = 'default-image';
     var sneakerImage = sneaksLogo;
   }
 
   //var tien = "Gia-Tien";
-  var len= Object.keys(sneaker.GiaHT).length;
-  var price = sneaker.GiaHT[len-1].Price;
+  var len= Object.keys(laptop.GiaHT).length;
+  var price = laptop.GiaHT[len-1].Price;
 
 
 
@@ -125,13 +121,13 @@ const MiniCard = (props) => {
           style={{ width: '15rem', height: '20rem' }}>
           <Card.Img class={imageClass} variant="top" src={sneakerImage} />
           <Card.Body class='mini-card-body'>
-            <Card.Title class='card-title'>{sneaker.Ten}</Card.Title>
+            <Card.Title class='card-title'>{laptop.Ten}</Card.Title>
             <CardText />
           </Card.Body>
         </Card>
 
-        {fetchSneaker && <ProductCard sneaker={newSneaker} name={sneaker.Ten} InfoName={sneaker.InfoName} InfoText={sneaker.InfoText}
-           imageClass={imageClass} image={sneakerImage} minPriceLink={sneaker.Link} minPrice={price} giaHT={sneaker.GiaHT}
+        {fetchLaptop && <ProductCard laptop={newLaptop} name={laptop.Ten} InfoName={laptop.InfoName} InfoText={laptop.InfoText}
+           imageClass={imageClass} image={sneakerImage} minPriceLink={laptop.Link} minPrice={price} giaHT={laptop.GiaHT}
           logo={logo}show={showProductCard} onHide={hideCard}></ProductCard>
         }
       </a>

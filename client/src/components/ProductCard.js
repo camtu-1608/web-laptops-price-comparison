@@ -5,21 +5,19 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Button from 'react-bootstrap/Button'
 import ImgCarousel from './ImgCarousel';
-//import PriceTable from './PriceTable';
 import Spinner from 'react-bootstrap/Spinner'
-//import Plot from 'react-plotly.js';
 import Plotly from "plotly.js-basic-dist";
-
+import {Scrollbars} from 'rc-scrollbars'
 import createPlotlyComponent from "react-plotly.js/factory";
 const Plot = createPlotlyComponent(Plotly);
-
+var _ = require('lodash');
 const ProductCard = (props) => {
     const [loading, setLoading] = useState(true);
-    const [sneaker, setSneaker] = useState({});
+    const [laptop, setLaptop] = useState({});
 
     useEffect(() => {
-        setSneaker(props.sneaker)
-        if(Object.keys(sneaker).length !== 0){
+        setLaptop(props.laptop)
+        if(Object.keys(laptop).length !== 0){
             setLoading(false);
         }
     },);
@@ -30,17 +28,19 @@ const ProductCard = (props) => {
   const listInfoText=props.InfoText.map((item)=> {
     return <li>{item}</li>;
   });
+  var listInfo=_.zipObject(props.InfoName,props.InfoText);
 
   const listGiaHTTime=props.giaHT.map((item)=>{
     var listTime=[];
     listTime=item.Time;
     return listTime;
-  })
+  });
   const listGiaHTPrice=props.giaHT.map((item)=>{
     var listPrice=[];
     listPrice=parseInt(item.Price.replace(/[.]/g,""));
     return listPrice;
-  })
+  });
+  
 
     return(
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -61,7 +61,7 @@ const ProductCard = (props) => {
               {loading ? <div class="spinner">
                 <Spinner animation="border" variant="secondary" role="status"></Spinner>
               </div>
-              :<ImgCarousel sneaker={sneaker} imageClass={props.imageClass} image={props.image}></ImgCarousel>}
+              :<ImgCarousel laptop={laptop} imageClass={props.imageClass} image={props.image}></ImgCarousel>}
             </div>
             <div class="description">
               <h2>{props.name}</h2>
@@ -104,14 +104,22 @@ const ProductCard = (props) => {
 
                 </Tab> 
                 <Tab class="pull-right" eventKey="details" title="Details">
-                  <div class="row">
+                  {/* <div class="row">
                     <div class='col-lg-3 tag details left'>
                       {listInfoName}
                     </div>
                     <div class='col-lg-9 tag details right'>
                       {listInfoText}
                     </div>
-                  </div>
+                  </div> */}
+                  <Scrollbars style={{ width: 750, height: 450 }}>
+                    {Object.keys(listInfo).map(key => (
+                      <p>
+                        <strong>{key.charAt(0).toUpperCase() + key.slice(1)} </strong>
+                        {listInfo[key]}
+                      </p>
+                    ))}
+                  </Scrollbars>
                 </Tab>
               </Tabs>
             </div>

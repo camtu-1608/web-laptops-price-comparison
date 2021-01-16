@@ -1,12 +1,12 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 const ImgCarousel = (props) => {
-    var sneaker = props.sneaker;
+    var laptop = props.laptop;
 
     const images = () =>{
-        if(sneaker?.Img.length > 0){
+        if(laptop?.Img.length > 0){
             return (
-                sneaker.Img.map(image=>(
+                laptop.Img.map(image=>(
                 <Carousel.Item>
                     <img class='goat-images' src={image}></img>
                 </Carousel.Item>

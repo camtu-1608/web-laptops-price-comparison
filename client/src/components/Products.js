@@ -11,7 +11,7 @@ const Products = ({ match, location }) => {
       Accept: "application/json"
     });
     const [loading, setLoading] = useState(true);
-    const [sneakers, setSneakers] = useState({});
+    const [laptops, setLaptops] = useState({});
     const [errorMessage, setErrorMessage] = useState(null);
     const {
       params: {
@@ -27,12 +27,11 @@ const Products = ({ match, location }) => {
         behavior: 'smooth'
       })
       fetch("http://localhost:5000/product/find/query=" + key, {
-      // fetch("https://sneakyapi.herokuapp.com/search/" + key, {
           headers: myHeaders,
         })
         .then(response => response.json())
         .then(jsonResponse => {
-          setSneakers(jsonResponse);
+          setLaptops(jsonResponse);
           setLoading(false);
           window.scrollTo({
             top: 625,
@@ -52,9 +51,9 @@ const Products = ({ match, location }) => {
             ) : errorMessage ? (
             <div className="errorMessage">{errorMessage}</div>
             ) : (
-            sneakers.map((sneaker, index) => (
+            laptops.map((laptop, index) => (
 
-            <MiniCard key={`${index}-${sneaker.Ten}`} sneaker={sneaker} />
+            <MiniCard key={`${index}-${laptop.Ten}`} laptop={laptop} />
             ))
             )}
           </div>

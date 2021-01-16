@@ -1,10 +1,9 @@
 var express = require("express");
 var router = express.Router();
-const productsModel = require("../controller/Product");
+const productsControl = require("../controller/Product");
 
-router.get("/toptrending", productsModel.TopTrending);
-router.get("/webname/:id", productsModel.filterByWebName);
-router.get("/findById/:id", productsModel.findById);
-router.get("/find/:query",productsModel.searchName);
+router.get("/toptrending", productsControl.TopTrending);
+router.get("/find/:query",productsControl.searchName);
 
 module.exports = router;
+

@@ -11,6 +11,7 @@
     "http2": "^3.3.7",
     "plotly.js": "^1.58.4",
     "plotly.js-basic-dist": "^1.58.4",
+    "rc-scrollbars": "^1.0.3",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
