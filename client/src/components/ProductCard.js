@@ -22,12 +22,12 @@ const ProductCard = (props) => {
         }
     },);
     // console.log(sneaker);
-  const listInfoName=props.InfoName.map((item)=> {
-      return <li>{item}</li>
-  });
-  const listInfoText=props.InfoText.map((item)=> {
-    return <li>{item}</li>;
-  });
+  // const listInfoName=props.InfoName.map((item)=> {
+  //     return <li>{item}</li>
+  // });
+  // const listInfoText=props.InfoText.map((item)=> {
+  //   return <li>{item}</li>;
+  // });
   var listInfo=_.zipObject(props.InfoName,props.InfoText);
 
   const listGiaHTTime=props.giaHT.map((item)=>{
@@ -76,6 +76,7 @@ const ProductCard = (props) => {
                     variant="secondary" size="lg">
                     Visit site
                   </Button>
+                  <span class='dayUpdate-text'>Day Update: {props.dayUpdate}</span>
               </div>:
               <div>Not Available</div>}
 
@@ -112,7 +113,7 @@ const ProductCard = (props) => {
                       {listInfoText}
                     </div>
                   </div> */}
-                  <Scrollbars style={{ width: 750, height: 450 }}>
+                  <Scrollbars style={{ width: 756, height: 456 }}>
                     {Object.keys(listInfo).map(key => (
                       <p>
                         <strong>{key.charAt(0).toUpperCase() + key.slice(1)} </strong>

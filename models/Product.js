@@ -16,7 +16,7 @@ const products = new Schema(
         InfoText:[String]
         },
         Ten:String,
-        Web:String
+        Web:String,
     },
     { collection: DATA }
 );

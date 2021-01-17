@@ -632,7 +632,13 @@ button {
   vertical-align: 30%;
   font-weight: 400;
 }
-
+.dayUpdate-text {
+  font-size: medium;
+  color: #525252;
+  vertical-align: -40%;
+  font-weight: 600;
+  margin-left: 450px;
+}
 
 .description .card-price .logo {
   transform: scale(.25);

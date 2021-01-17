@@ -23,16 +23,6 @@ const MiniCard = (props) => {
   useEffect(() => {
     if (fetchLaptop) {
       setNewLaptop(props.laptop)
-    //   fetch("https://sneakyapi.herokuapp.com/id/" + sneaker.styleID + '/prices', {
-    //       headers: myHeaders,
-    //     })
-    //     .then(response => response.json())
-    //     .then(jsonResponse => {
-    //       setNewSneaker(jsonResponse);
-
-    //     });
-    // }
-    //setNewSneaker(sneaker)
   }
   }, [fetchLaptop]
   );
@@ -50,17 +40,10 @@ const MiniCard = (props) => {
     }
   }
 
-  // var minPrice;
-  // var minPriceLink;
-  var logo //= _.minBy(_.keys(sneaker.lowestResellPrice), function (o) {
-  //   return sneaker.lowestResellPrice[o];
-  //});
+  var logo 
 
   if (laptop.Web == 'Cellphones') {
     logo = cellphoneLogo;
-    // minPrice = sneaker.lowestResellPrice.stockX;
-    // minPriceLink = sneaker.resellLinks.stockX;
-
   } else if (laptop.Web == 'Fado') {
     logo = fadoLogo;
   } else if (laptop.Web == 'FPT Shop') {
@@ -127,7 +110,7 @@ const MiniCard = (props) => {
         </Card>
 
         {fetchLaptop && <ProductCard laptop={newLaptop} name={laptop.Ten} InfoName={laptop.InfoName} InfoText={laptop.InfoText}
-           imageClass={imageClass} image={sneakerImage} minPriceLink={laptop.Link} minPrice={price} giaHT={laptop.GiaHT}
+           imageClass={imageClass} image={sneakerImage} minPriceLink={laptop.Link} minPrice={price} giaHT={laptop.GiaHT} dayUpdate={laptop.DayUpdate}
           logo={logo}show={showProductCard} onHide={hideCard}></ProductCard>
         }
       </a>

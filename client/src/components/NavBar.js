@@ -19,7 +19,7 @@ const NavBar = ()=> {
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="ml-auto" style={{marginRight:10, marginTop: 8, marginBottom: 8}}>
       <Nav.Link href={process.env.PUBLIC_URL+'/'}style={{marginRight:10}}>Home </Nav.Link>
-      <Nav.Link href="https://fb.com/datnee188">About</Nav.Link>
+      <Nav.Link href="https://github.com/camtu-1608/web-laptops-price-comparison">About</Nav.Link>
     </Nav>
   </Navbar.Collapse>
 
