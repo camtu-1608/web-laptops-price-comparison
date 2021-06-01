@@ -41,7 +41,9 @@ mongoose.Promise = Promise;
 const run = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://bao_tran:Bao0123456@cluster0.fsv6l.mongodb.net/TMDT",
+      //"mongodb+srv://bao_tran:Bao0123456@cluster0.fsv6l.mongodb.net/TMDT",
+      "mongodb+srv://baotran:Bao123456@cluster0.djrnk.mongodb.net/ProductComment",
+      //"mongodb+srv://baotran:Bao123456@cluster0.djrnk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
