@@ -32,7 +32,6 @@ const App = () => {
               </div>
           </div>
           <SearchBar />
-          <BrandIcons/>
         </div>
         <Switch>
           <Route exact path={process.env.PUBLIC_URL+'/'} component={Trending}/>

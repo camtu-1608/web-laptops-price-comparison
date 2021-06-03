@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const SchemaTypes = mongoose.Schema.Types;
 //const DATA = "DataProducts";
-const DATA = "Products";
+const DATA = "products";
 //var textSearch = require('mongoose-text-search');
 
 const products = new Schema(
@@ -21,17 +21,20 @@ const products = new Schema(
         catid: Number,
         itemid: Number,
         shopid: Number,
+        name: String,
         atributes: {value: {type:String}, name: String},
         images: [String],
         description: String,
         currency: String,
         image: String,
-        name: String,
-        sold: Number,
-        stock: Number,
+        shop_location: String,
+        historical_sold: Number,
+        normal_stock: Number,
+        discount:String,
         cmt_count: Number,
         liked_count: Number,
         rating_star: Number,
+        url:String,
         review_price: {price: {type:Number}, DayUpdate: Date},
 
     },
