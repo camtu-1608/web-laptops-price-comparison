@@ -21,7 +21,7 @@ const Trending = () =>{
 
   useEffect(() => { 
     setErrorMessage(null) 
-    fetch("http://localhost:5000/product/toptrending",{method:"GET"}, {
+    fetch("http://localhost:5000/product/find/getCate/query=",{method:"GET"}, {
       headers: new Headers({
           "Content-Type": "application/json",
           Accept: "application/json"}),
