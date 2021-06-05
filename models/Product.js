@@ -34,8 +34,6 @@ const topTrending = async () => {
     return await listProducts.find().skip(skip).limit(limit);
 }
 
-
-
 module.exports= {
     TopTrending: topTrending,
     Products:Products
