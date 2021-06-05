@@ -3,6 +3,7 @@ import MiniCard from './MiniCard'
 import Spinner from 'react-bootstrap/Spinner'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
+import {Link} from "react-router-dom";
 
 //const SNEAKS_API = "https://sneakyapi.herokuapp.com/home"
 //const Laptops_API="http://localhost:5000/product/toptrending"
@@ -20,7 +21,7 @@ const Trending = () =>{
 
   useEffect(() => { 
     setErrorMessage(null) 
-    fetch("http://localhost:5000/product/toptrending",{method:"GET"}, {
+    fetch("http://localhost:5000/product/find/getCate/query=",{method:"GET"}, {
       headers: new Headers({
           "Content-Type": "application/json",
           Accept: "application/json"}),
@@ -66,7 +67,10 @@ const Trending = () =>{
 
   return(
     <div class='product-section'>
-      <h2 class='title'>Copyright by TuThuyBao</h2>
+      <Link to="/161" className="product-section-button"><p>Shopee</p></Link>
+      <Link to="/162" className="product-section-button"><p>Shopee</p></Link>
+      <Link to="/163" className="product-section-button"><p>Shopee</p></Link>
+      <Link to="/164" className="product-section-button"><p>Shopee</p></Link>
     </div>
   )
 }

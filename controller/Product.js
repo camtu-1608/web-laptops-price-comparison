@@ -21,6 +21,23 @@ exports.searchName = async(req,res) =>{
   }).sort({ score: { $meta: "textScore" } }).limit(50);
 }
 
+exports.getCate = async(req,res) =>{
+  const query =req.params.query;
+  return await Products.find( {"catid":query}, (findErr, findRes) => {
+    if (findErr) {
+    //log error here
+      res.status(200).send({
+        message: 'Failed: to search via index',
+        success: true,
+        result: findErr
+      });
+    }
+    else {
+      res.send(findRes);
+    }
+  }).sort({"historical_sold":-1}).limit(50);
+}
+
 exports.TopTrending = async (req, res) => {
     try {
       let response = await TopTrending();
