@@ -53,7 +53,7 @@ const Products = ({ match, location }) => {
             ) : (
             laptops.map((laptop, index) => (
 
-            <MiniCard key={`${index}-${laptop.Ten}`} laptop={laptop} />
+            <MiniCard key={`${index}-${laptop.name}`} laptop={laptop} />
             ))
             )}
           </div>

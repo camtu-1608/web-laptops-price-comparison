@@ -4,18 +4,18 @@ const ImgCarousel = (props) => {
     var laptop = props.laptop;
 
     const images = () =>{
-        if(laptop?.Img.length > 0){
+        if(laptop?.images.length > 0){
             return (
-                laptop.Img.map(image=>(
+                laptop.images.map(image=>(
                 <Carousel.Item>
-                    <img class='goat-images' src={image}></img>
+                    <img class={props.imageClass} src={'https://cf.shopee.vn/file/'+image}></img>
                 </Carousel.Item>
             )));}
         else{
             console.log(props);
             return(
                 <Carousel.Item>
-                    <img class={props.imageClass} src={props.image}></img>
+                    <img class={props.imageClass} src={props.images}></img>
                 </Carousel.Item>
             )
         }
