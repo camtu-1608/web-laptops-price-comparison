@@ -76,6 +76,21 @@ a, u {
   width: 100%;
 }
 
+.button-part{
+  top: 250px;
+  align-items: center;
+  position: inherit;
+}
+
+.button-sandal{
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
 .search-title {
   top: 20%;
   color: darkgreen;

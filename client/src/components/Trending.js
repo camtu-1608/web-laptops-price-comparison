@@ -67,10 +67,7 @@ const Trending = () =>{
 
   return(
     <div class='product-section'>
-      <Link to="/161" className="product-section-button"><p>Shopee</p></Link>
-      <Link to="/162" className="product-section-button"><p>Shopee</p></Link>
-      <Link to="/163" className="product-section-button"><p>Shopee</p></Link>
-      <Link to="/164" className="product-section-button"><p>Shopee</p></Link>
+      <div className="product-section-button"> vip pro </div>
     </div>
   )
 }
