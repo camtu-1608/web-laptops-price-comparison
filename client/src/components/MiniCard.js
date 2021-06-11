@@ -60,17 +60,19 @@ const MiniCard = (props) => {
   else if (laptop.Web == 'Viettel Store') {
     logo = vtLogo;
   }
-  if (laptop.Img) {
-    var imageClass = 'sneaker-image';
-    var sneakerImage = laptop.Img[0];
-  } else {
-    var imageClass = 'default-image';
-    var sneakerImage = sneaksLogo;
-  }
+  // if (laptop.image) {
+  var imageClass = 'sneaker-image';
+  var sneakerImage = 'https://cf.shopee.vn/file/'+laptop.image;
+  var sneakerImages = 'https://cf.shopee.vn/file/'+laptop.images;
+  // } else {
+  //   var imageClass = 'default-image';
+  //   var sneakerImage = sneaksLogo;
+  // }
 
   //var tien = "Gia-Tien";
-  var len= Object.keys(laptop.GiaHT).length;
-  var price = laptop.GiaHT[len-1].Price;
+  var len= Object.keys(laptop.review_price).length;
+  var price = laptop.review_price[len-1].price;
+  var dayupdate=laptop.review_price[len-1].DayUpdate;
 
 
 
@@ -79,8 +81,7 @@ const MiniCard = (props) => {
       return (
          <Card.Text class='mini-card-text'>
            <div>From</div>
-           <div class='mini-card-price'>{price} <span class='on-text'> on</span><img class='mini-logo'
-               src={logo}></img></div>
+           <div class='mini-card-price'>{price} <span class='on-text'> on</span></div>
          </Card.Text>
     );
   }
@@ -104,14 +105,15 @@ const MiniCard = (props) => {
           style={{ width: '15rem', height: '20rem' }}>
           <Card.Img class={imageClass} variant="top" src={sneakerImage} />
           <Card.Body class='mini-card-body'>
-            <Card.Title class='card-title'>{laptop.Ten}</Card.Title>
+            <Card.Title class='card-title'>{laptop.name}</Card.Title>
             <CardText />
           </Card.Body>
         </Card>
 
-        {fetchLaptop && <ProductCard laptop={newLaptop} name={laptop.Ten} InfoName={laptop.InfoName} InfoText={laptop.InfoText}
-           imageClass={imageClass} image={sneakerImage} minPriceLink={laptop.Link} minPrice={price} giaHT={laptop.GiaHT} dayUpdate={laptop.DayUpdate}
-          logo={logo}show={showProductCard} onHide={hideCard}></ProductCard>
+        {fetchLaptop && <ProductCard laptop={newLaptop} name={laptop.name} 
+          // InfoName={laptop.InfoName} InfoText={laptop.InfoText}
+           imageClass={imageClass} images={sneakerImages} minPriceLink={laptop.url} minPrice={price} giaHT={laptop.review_price} dayUpdate={dayupdate}
+          show={showProductCard} onHide={hideCard}></ProductCard>
         }
       </a>
     );

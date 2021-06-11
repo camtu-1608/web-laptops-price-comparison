@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 
 
-const Products = ({ match, location }) => {
+const Category = ({ match, location }) => {
     const myHeaders = new Headers({
       "Content-Type": "application/json",
       Accept: "application/json"
@@ -26,7 +26,7 @@ const Products = ({ match, location }) => {
         top: 100,
         behavior: 'smooth'
       })
-      fetch("http://localhost:5000/product/find/query=" + key, {
+      fetch("http://localhost:5000/product/find/getCate/query=" + key, {
           headers: myHeaders,
         })
         .then(response => response.json())
@@ -61,4 +61,4 @@ const Products = ({ match, location }) => {
       )
 }
 
-export default Products;
+export default Category;

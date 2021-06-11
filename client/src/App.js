@@ -6,15 +6,13 @@ import BrandIcons from './components/BrandIcons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Trending from './components/Trending';
 import Products from './components/Products';
-
-
-
-
+import Category from './components/Category';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import SandalButton from './components/SandalButton';
 
 
 
@@ -32,10 +30,14 @@ const App = () => {
               </div>
           </div>
           <SearchBar />
+          <div className="button-part">
+            <SandalButton />
+          </div>
         </div>
         <Switch>
           <Route exact path={process.env.PUBLIC_URL+'/'} component={Trending}/>
           <Route path={process.env.PUBLIC_URL +'/search/:key'} component={Products}/>
+          <Route path={process.env.PUBLIC_URL +'/getCate/:key'} component={Category}/>
         </Switch>
       </div>
     );

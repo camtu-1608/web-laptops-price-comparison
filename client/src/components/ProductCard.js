@@ -28,16 +28,17 @@ const ProductCard = (props) => {
   // const listInfoText=props.InfoText.map((item)=> {
   //   return <li>{item}</li>;
   // });
-  var listInfo=_.zipObject(props.InfoName,props.InfoText);
+  // var listInfo=_.zipObject(props.InfoName,props.InfoText);
 
   const listGiaHTTime=props.giaHT.map((item)=>{
     var listTime=[];
-    listTime=item.Time;
+    listTime=item.DayUpdate;
     return listTime;
   });
   const listGiaHTPrice=props.giaHT.map((item)=>{
     var listPrice=[];
-    listPrice=parseInt(item.Price.replace(/[.]/g,""));
+    // listPrice=parseInt(item.Price.replace(/[.]/g,""));
+    listPrice=item.price;
     return listPrice;
   });
   
@@ -49,7 +50,7 @@ const ProductCard = (props) => {
               <svg class="arrow" version="1.1" viewBox="0 0 512 512" width="512px"
                 onClick={props.onHide}xmlns="http://www.w3.org/2000/svg">
                 <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272" /></svg>
-              <div style={{cursor:"pointer"}} onClick={props.onHide}> BACK TO ALL LAPTOPS </div>
+              <div style={{cursor:"pointer"}} onClick={props.onHide}> BACK TO ALL PRODUCTS </div>
               <svg class="heart" version="1.1" viewBox="0 0 512 512" width="512px" stroke="#727272"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -61,7 +62,7 @@ const ProductCard = (props) => {
               {loading ? <div class="spinner">
                 <Spinner animation="border" variant="secondary" role="status"></Spinner>
               </div>
-              :<ImgCarousel laptop={laptop} imageClass={props.imageClass} image={props.image}></ImgCarousel>}
+              :<ImgCarousel laptop={laptop} imageClass={props.imageClass} image={props.images}></ImgCarousel>}
             </div>
             <div class="description">
               <h2>{props.name}</h2>
@@ -69,8 +70,8 @@ const ProductCard = (props) => {
                 <div class='from-text'>From</div>
                 <div class='card-price'>
                   VND {props.minPrice} 
-                  <span class='on-text'> on</span> 
-                  <img class='logo'src={props.logo}></img>
+                  {/* <span class='on-text'> on</span>  */}
+                  {/* <img class='logo'src={props.logo}></img> */}
                   </div>
                   <Button onClick={()=> {window.open(props.minPriceLink, '_blank')}} class='buy-button'
                     variant="secondary" size="lg">
@@ -113,14 +114,14 @@ const ProductCard = (props) => {
                       {listInfoText}
                     </div>
                   </div> */}
-                  <Scrollbars style={{ width: 756, height: 456 }}>
+                  {/* <Scrollbars style={{ width: 756, height: 456 }}>
                     {Object.keys(listInfo).map(key => (
                       <p>
                         <strong>{key.charAt(0).toUpperCase() + key.slice(1)} </strong>
                         {listInfo[key]}
                       </p>
                     ))}
-                  </Scrollbars>
+                  </Scrollbars> */}
                 </Tab>
               </Tabs>
             </div>
