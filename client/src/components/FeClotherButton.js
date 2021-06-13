@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const SandalButton = () => {
+const FeClotherButton = () => {
     let history = useHistory();
 
     const callFunctioForCategory = (e) => {
         e.preventDefault();
-        history.push(process.env.PUBLIC_URL+'/getCate/'+'161')
+        history.push(process.env.PUBLIC_URL+'/getCate/'+'77')
     }
 
     return(
         <button className="button-sandal" onClick={callFunctioForCategory}>
-            Giày Dép Nam
+            Quần Áo Nữ
         </button>
     )
 }
 
-export default SandalButton;
+export default FeClotherButton;

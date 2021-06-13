@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card'
-import sneaksLogo from '../images/Sneaks_Logo.png'
-import cellphoneLogo from '../images/cellphones.png'
-import fadoLogo from '../images/fadonew.jpg'
-import fptLogo from '../images/fptnew.jpg'
-import nkLogo from '../images/nknew.jpg'
-import pvLogo from '../images/pvnew.jpg'
-import vtLogo from '../images/vtnew.jpg'
-import tgddLogo from '../images/tgddnew.jpg'
+// import sneaksLogo from '../images/Sneaks_Logo.png'
+// import cellphoneLogo from '../images/cellphones.png'
+// import fadoLogo from '../images/fadonew.jpg'
+// import fptLogo from '../images/fptnew.jpg'
+// import nkLogo from '../images/nknew.jpg'
+// import pvLogo from '../images/pvnew.jpg'
+// import vtLogo from '../images/vtnew.jpg'
+// import tgddLogo from '../images/tgddnew.jpg'
 import ProductCard from './ProductCard'
 //var _ = require('lodash');
 const myHeaders = new Headers({
@@ -40,26 +40,26 @@ const MiniCard = (props) => {
     }
   }
 
-  var logo 
+  // var logo 
 
-  if (laptop.Web == 'Cellphones') {
-    logo = cellphoneLogo;
-  } else if (laptop.Web == 'Fado') {
-    logo = fadoLogo;
-  } else if (laptop.Web == 'FPT Shop') {
-    logo = fptLogo;
-  }else if (laptop.Web == 'Nguyễn Kim') {
-    logo =nkLogo;
-  }
-  else if (laptop.Web == 'Phong Vũ') {
-    logo = pvLogo;
-  }
-  else if (laptop.Web == 'Thế Giới Di Động') {
-    logo = tgddLogo;
-  }
-  else if (laptop.Web == 'Viettel Store') {
-    logo = vtLogo;
-  }
+  // if (laptop.Web == 'Cellphones') {
+  //   logo = cellphoneLogo;
+  // } else if (laptop.Web == 'Fado') {
+  //   logo = fadoLogo;
+  // } else if (laptop.Web == 'FPT Shop') {
+  //   logo = fptLogo;
+  // }else if (laptop.Web == 'Nguyễn Kim') {
+  //   logo =nkLogo;
+  // }
+  // else if (laptop.Web == 'Phong Vũ') {
+  //   logo = pvLogo;
+  // }
+  // else if (laptop.Web == 'Thế Giới Di Động') {
+  //   logo = tgddLogo;
+  // }
+  // else if (laptop.Web == 'Viettel Store') {
+  //   logo = vtLogo;
+  // }
   // if (laptop.image) {
   var imageClass = 'sneaker-image';
   var sneakerImage = 'https://cf.shopee.vn/file/'+laptop.image;
@@ -81,7 +81,7 @@ const MiniCard = (props) => {
       return (
          <Card.Text class='mini-card-text'>
            <div>From</div>
-           <div class='mini-card-price'>{price} <span class='on-text'> on</span></div>
+           <div class='mini-card-price'>{price} <span class='on-text'></span></div>
          </Card.Text>
     );
   }
@@ -111,9 +111,9 @@ const MiniCard = (props) => {
         </Card>
 
         {fetchLaptop && <ProductCard laptop={newLaptop} name={laptop.name} 
-          // InfoName={laptop.InfoName} InfoText={laptop.InfoText}
-           imageClass={imageClass} images={sneakerImages} minPriceLink={laptop.url} minPrice={price} giaHT={laptop.review_price} dayUpdate={dayupdate}
-          show={showProductCard} onHide={hideCard}></ProductCard>
+          // InfoName={laptop.InfoName} InfoText={laptop.InfoText} 
+          atribute={laptop.attributes} imageClass={imageClass} images={sneakerImages} minPriceLink={laptop.url} minPrice={price} giaHT={laptop.review_price} dayUpdate={dayupdate}
+          show={showProductCard} onHide={hideCard} des={laptop.description}></ProductCard>
         }
       </a>
     );

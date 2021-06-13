@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import ImgCarousel from './ImgCarousel';
 import Spinner from 'react-bootstrap/Spinner'
 import Plotly from "plotly.js-basic-dist";
-import {Scrollbars} from 'rc-scrollbars'
+// import {Scrollbars} from 'rc-scrollbars'
 import createPlotlyComponent from "react-plotly.js/factory";
 const Plot = createPlotlyComponent(Plotly);
 var _ = require('lodash');
@@ -42,6 +42,10 @@ const ProductCard = (props) => {
     return listPrice;
   });
   
+  const valuee = props.atribute.map((item)=>{
+    var value1= item.name;
+    return value1;
+  });
 
     return(
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -106,23 +110,12 @@ const ProductCard = (props) => {
 
                 </Tab> 
                 <Tab class="pull-right" eventKey="details" title="Details">
-                  {/* <div class="row">
-                    <div class='col-lg-3 tag details left'>
-                      {listInfoName}
-                    </div>
-                    <div class='col-lg-9 tag details right'>
-                      {listInfoText}
-                    </div>
-                  </div> */}
-                  {/* <Scrollbars style={{ width: 756, height: 456 }}>
-                    {Object.keys(listInfo).map(key => (
-                      <p>
-                        <strong>{key.charAt(0).toUpperCase() + key.slice(1)} </strong>
-                        {listInfo[key]}
-                      </p>
-                    ))}
-                  </Scrollbars> */}
+                  Description: {props.des}
+                  Chi tiết: {valuee}
                 </Tab>
+                {/* <Tab class="pull-right" eventKey="details" title="Chi tiết">
+                  Chi tiết: {props.atribute.value}
+                </Tab> */}
               </Tabs>
             </div>
           </div>

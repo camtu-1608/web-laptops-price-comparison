@@ -13,6 +13,9 @@ import {
   Route,
 } from "react-router-dom";
 import SandalButton from './components/SandalButton';
+import FeSandalButton from './components/FeSandalButton';
+import ClotherButton from './components/ClotherButton';
+import FeClotherButton from './components/FeClotherButton';
 
 
 
@@ -32,6 +35,9 @@ const App = () => {
           <SearchBar />
           <div className="button-part">
             <SandalButton />
+            <FeSandalButton />
+            <ClotherButton />
+            <FeClotherButton />
           </div>
         </div>
         <Switch>

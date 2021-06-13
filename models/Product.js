@@ -22,7 +22,7 @@ const products = new Schema(
         itemid: Number,
         shopid: Number,
         name: String,
-        atributes: {value: {type:String}, name: String},
+        attributes: {value: {type:String}, name: String},
         images: [String],
         description: String,
         currency: String,

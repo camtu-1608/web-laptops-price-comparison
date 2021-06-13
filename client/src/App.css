@@ -83,26 +83,28 @@ a, u {
 }
 
 .button-sandal{
-  background-color: black;
+  background-color: #cec2da;
   color: white;
   font-size: 20px;
   border-radius: 5px;
-  margin: 10px 0px;
+  margin: 10px 30px;
   cursor: pointer;
+  padding: 10px;
+  width: 200px;
 }
 
 .search-title {
   top: 20%;
-  color: darkgreen;
-  font-family: "Avenir";
+  color: #823e1e;
+  font-family: "Arial";
   position: relative;
 
 
 }
 
 .search-title .title {
-  font-size: 43px;
-  color: olivedrab;
+  font-size: 70px;
+  color: #fff0fb;
   font-weight: 700;
   padding-bottom: 10px;
 
@@ -111,7 +113,7 @@ a, u {
 
 .search-title .subtitle {
 
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 300;
   font-weight: lighter;
 
@@ -257,7 +259,7 @@ html, body, #wrapper, div#main {
   height: 200px;
   text-align: center;
   margin-left: 52px;
-  background-color: #b9bbbd;
+  background-color: #d2c5df;
   vertical-align: middle;
   display: table-cell;
 }

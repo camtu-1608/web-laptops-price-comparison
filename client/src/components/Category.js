@@ -26,7 +26,7 @@ const Category = ({ match, location }) => {
         top: 100,
         behavior: 'smooth'
       })
-      fetch("http://localhost:5000/product/find/getCate/query=" + key, {
+      fetch("http://localhost:5000/product/find/getCate/" + key, {
           headers: myHeaders,
         })
         .then(response => response.json())
@@ -43,7 +43,9 @@ const Category = ({ match, location }) => {
 
     return(
         <div class='product-section'>
-          <h2 class='product-title'> Results for <span class="product-key">'{key}'</span> </h2>
+          <h2 class='product-title'> Results for <span class="product-key">
+            {key == 161 ? 'Giày Dép' : key == 2429 ? 'Giày Thể Thao' : key == 77 ? 'Thời Trang Nữ' : key == 78 ? 'Thời Trang Nam':'Mặt hàng khác'}
+            </span> </h2>
           <div class='product-page'>
             {loading && !errorMessage ? (
             <Spinner class='spinners' animation="border" variant="secondary" role="status"></Spinner>
@@ -58,7 +60,7 @@ const Category = ({ match, location }) => {
             )}
           </div>
         </div>
-      )
+    )
 }
 
 export default Category;
