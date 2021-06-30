@@ -113,7 +113,7 @@ const MiniCard = (props) => {
         {fetchLaptop && <ProductCard laptop={newLaptop} name={laptop.name} 
           // InfoName={laptop.InfoName} InfoText={laptop.InfoText} 
           atribute={laptop.attributes} imageClass={imageClass} images={sneakerImages} minPriceLink={laptop.url} minPrice={price} giaHT={laptop.review_price} dayUpdate={dayupdate}
-          show={showProductCard} onHide={hideCard} des={laptop.description}></ProductCard>
+          show={showProductCard} onHide={hideCard} des={laptop.description} id={laptop.itemid}></ProductCard>
         }
       </a>
     );
