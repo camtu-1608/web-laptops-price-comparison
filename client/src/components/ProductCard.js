@@ -18,6 +18,7 @@ const ProductCard = (props, location) => {
   const [loading, setLoading] = useState(true);
   const [laptop, setLaptop] = useState({});
   const [chartInfor, setChartInfor] = useState({});
+  const [cmtInfor, setCmtInfor] = useState({});
 
   useEffect(() => {
     setLaptop(props.laptop);
@@ -25,7 +26,7 @@ const ProductCard = (props, location) => {
       setLoading(false);
     }
 
-    fetch("https://cors-anywhere.herokuapp.com/https://1737c8e6feaa.ngrok.io/rating/" + props.id, {
+    fetch("https://1737c8e6feaa.ngrok.io/rating/" + props.id, {
       headers: myHeaders,
     })
       .then((response) => response.json())
@@ -34,17 +35,18 @@ const ProductCard = (props, location) => {
       });
   });
 
-  console.log(chartInfor);
+  // console.log(cmtInfor);
 
   // console.log(sneaker);
-  const value = props.atribute.map((item) => {
-    var valuee = item.value;
-    return <li>{valuee}</li>;
-  });
-  const name = props.atribute.map((item) => {
-    var namee = item.name;
-    return <li>{namee}</li>;
-  });
+  // const value = props.atribute.map((item) => {
+  //   var valuee = item.value;
+  //   return <li>{valuee}</li>;
+  // });
+  // const name = props.atribute.map((item) => {
+  //   var namee = item.name;
+  //   return <li>{namee}</li>;
+  // });
+
   // var listInfo=_.zipObject(props.InfoName,props.InfoText);
 
   const listGiaHTTime = props.giaHT.map((item) => {
@@ -52,14 +54,22 @@ const ProductCard = (props, location) => {
     listTime = item.DayUpdate;
     return listTime;
   });
+  // const listGiaHTPrice = props.giaHT.map((item) => {
+  //   var listPrice = [];
+  //   // listPrice=parseInt(item.Price.replace(/[.]/g,""));
+  //   listPrice = item.price;
+  //   return listPrice;
+  // });
+
   const listGiaHTPrice = props.giaHT.map((item) => {
     var listPrice = [];
     // listPrice=parseInt(item.Price.replace(/[.]/g,""));
-    listPrice = item.price;
+    const fix=item.price*0.00001
+    listPrice = fix;
     return listPrice;
   });
 
-  console.log(props.des.split("\n"));
+  // console.log(props.des.split("\n"));
   // const text = props.des.replace('\r\n', '');
   // console.log(text);
 
@@ -136,12 +146,12 @@ const ProductCard = (props, location) => {
           <h2>{props.name}</h2>
           {props.minPrice ? (
             <div>
-              <div class="from-text">From</div>
+              <div class="from-text">Chỉ từ</div>
               <div class="card-price">
-                VND {props.minPrice}
-                {/* <span class='on-text'> on</span>  */}
+                {props.minPrice} VND
                 {/* <img class='logo'src={props.logo}></img> */}
               </div>
+              <span class='noSale-text'>Số lượng bán: {props.no_sale}</span> 
               <Button
                 onClick={() => {
                   window.open(props.minPriceLink, "_blank");
@@ -152,14 +162,14 @@ const ProductCard = (props, location) => {
               >
                 Visit site
               </Button>
-              <span class="dayUpdate-text">Day Update: {props.dayUpdate}</span>
+              <span class="dayUpdate-text">Ngày cập nhật giá: {props.dayUpdate}</span>
             </div>
           ) : (
             <div>Not Available</div>
           )}
 
           <Tabs defaultActiveKey="description">
-            <Tab class="about" eventKey="description" title="Chart">
+            <Tab class="about" eventKey="description" title="Biểu đồ giá">
               <div class="about">
                 {/* {props.description} */}
                 <Plot
@@ -173,43 +183,45 @@ const ProductCard = (props, location) => {
                     },
                   ]}
                   layout={
-                    ({ width: 720, height: 450, title: "Biểu đồ" },
+                    ({ width: 720, height: 400, title: "Biểu đồ giá theo thời gian" },
                     {
                       yaxis: {
                         //title: 'Percent',
                         //showline: false,
-                        dtick: 100000,
+                        dtick: 1000,
                       },
                     })
                   }
                 />
               </div>
             </Tab>
-            <Tab class="pull-right" eventKey="details" title="Details">
-              {props.des.split(`\r\n`).map((item, key) => {
-                return (
-                  <span key={key}>
-                    {item}
-                    <br />
-                  </span>
-                );
-              })}
-
-              {/* <Scrollbars style={{ width: 756, height: 456 }}>
-                    {Object.keys(listInfo).map(key => (
-                      <p>
-                        <strong>{key.charAt(0).toUpperCase() + key.slice(1)} </strong>
-                        {listInfo[key]}
-                      </p>
-                    ))}
-                  </Scrollbars> */}
+            <Tab class="pull-right" eventKey="details" title="Biểu đồ so sánh">
+              <Plot 
+              data={[
+                {
+                  x: ['Tích cực','Tiêu cực','Trung lập'],
+                  y: [chartInfor.positive_shopee,chartInfor.negative_shopee,chartInfor.neutral_shopee],
+                  name:'Shopee',
+                  type:"bar"
+                },
+                {
+                  x: ['Tích cực','Tiêu cực','Trung lập'],
+                  y: [chartInfor.positive_model,chartInfor.negative_model,chartInfor.neutral_model],
+                  name: 'Model',
+                  type: "bar"
+                }
+              ]}
+              layout={(
+                {barmode: "group"},{title:"Biểu đồ so sánh đánh giá giữa rating shopee và dự đoán của model"}
+              )}
+              />
+              
             </Tab>
-            <Tab class="pull-right" eventKey="test" title="Test">
+            {/* <Tab class="pull-right" eventKey="test" title="Test">
               <div class="row">
-                <div class="col-lg-3 tag details left">{name}</div>
-                <div class="col-lg-9 tag details right">{value}</div>
+                {cmtInfor.comment_product}
               </div>
-            </Tab>
+            </Tab> */}
           </Tabs>
         </div>
       </div>

@@ -71,7 +71,8 @@ const MiniCard = (props) => {
 
   //var tien = "Gia-Tien";
   var len= Object.keys(laptop.review_price).length;
-  var price = laptop.review_price[len-1].price;
+  const price1 = laptop.review_price[len-1].price;
+  const price =price1*0.0001*0.1;
   var dayupdate=laptop.review_price[len-1].DayUpdate;
 
 
@@ -113,7 +114,7 @@ const MiniCard = (props) => {
         {fetchLaptop && <ProductCard laptop={newLaptop} name={laptop.name} 
           // InfoName={laptop.InfoName} InfoText={laptop.InfoText} 
           atribute={laptop.attributes} imageClass={imageClass} images={sneakerImages} minPriceLink={laptop.url} minPrice={price} giaHT={laptop.review_price} dayUpdate={dayupdate}
-          show={showProductCard} onHide={hideCard} des={laptop.description} id={laptop.itemid}></ProductCard>
+          show={showProductCard} onHide={hideCard} des={laptop.description} id={laptop.itemid} no_sale={laptop.historical_sold}></ProductCard>
         }
       </a>
     );

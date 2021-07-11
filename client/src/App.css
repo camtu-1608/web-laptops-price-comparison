@@ -682,7 +682,14 @@ button {
   color: #525252;
   vertical-align: -40%;
   font-weight: 600;
-  margin-left: 450px;
+  margin-left: 400px;
+}
+.noSale-text {
+  font-size: medium;
+  color: #525252;
+  vertical-align: -40%;
+  font-weight: 600;
+  margin-left: 500px;
 }
 
 .description .card-price .logo {
