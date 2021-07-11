@@ -12,7 +12,7 @@ const NavBar = ()=> {
     
   <Navbar.Brand >        
         <a href={process.env.PUBLIC_URL+'/'}>
-          <img src={logo} style={{width:100}} />
+          <img src={logo} style={{width:50, marginLeft:20}} />
         </a>
     </Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
