@@ -26,7 +26,7 @@ const ProductCard = (props, location) => {
       setLoading(false);
     }
 
-    fetch("https://1737c8e6feaa.ngrok.io/rating/" + props.id, {
+    fetch("https://2ca6613b1145.ngrok.io/rating/" + props.id, {
       headers: myHeaders,
     })
       .then((response) => response.json())
