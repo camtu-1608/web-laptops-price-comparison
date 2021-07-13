@@ -148,10 +148,10 @@ const ProductCard = (props, location) => {
             <div>
               <div class="from-text">Chỉ từ</div>
               <div class="card-price">
-                {props.minPrice} VND
+                {props.minPrice.toLocaleString('de-DE', { style: 'currency', currency: 'VND' })}
                 {/* <img class='logo'src={props.logo}></img> */}
+                <span class='noSale-text'>Số lượng bán: {props.no_sale}</span>
               </div>
-              <span class='noSale-text'>Số lượng bán: {props.no_sale}</span> 
               <Button
                 onClick={() => {
                   window.open(props.minPriceLink, "_blank");

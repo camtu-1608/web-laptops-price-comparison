@@ -81,8 +81,7 @@ const MiniCard = (props) => {
     if (price) {
       return (
          <Card.Text class='mini-card-text'>
-           <div>From</div>
-           <div class='mini-card-price'>{price} <span class='on-text'></span></div>
+           <div class='mini-card-price'>{(price).toLocaleString('de-DE', { style: 'currency', currency: 'VND' })} <span class='on-text'></span></div>
          </Card.Text>
     );
   }
