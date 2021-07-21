@@ -43,8 +43,8 @@ const Category = ({ match, location }) => {
 
     return(
         <div class='product-section'>
-          <h2 class='product-title'> Results for <span class="product-key">
-            {key == 161 ? 'Giày Dép' : key == 2429 ? 'Giày Thể Thao' : key == 77 ? 'Thời Trang Nữ' : key == 78 ? 'Thời Trang Nam':'Mặt hàng khác'}
+          <h2 class='product-title'> Kết quả tìm kiếm cho <span class="product-key">
+            {key == 161 ? 'Giày Dép Nam' : key == 2429 ? 'Giày Dép Nữ' : key == 77 ? 'Thời Trang Nữ' : key == 78 ? 'Thời Trang Nam':'Mặt hàng khác'}
             </span> </h2>
           <div class='product-page'>
             {loading && !errorMessage ? (

@@ -11,7 +11,7 @@ const ClotherButton = () => {
 
     return(
         <button className="button-sandal" onClick={callFunctioForCategory}>
-            Quần Áo Nam
+            Thời Trang Nam
         </button>
     )
 }

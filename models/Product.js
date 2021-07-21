@@ -7,17 +7,6 @@ const DATA = "products";
 
 const products = new Schema(
     {
-        // link: String,
-        // ngay_update: String,
-        // Gia_HT: {Time: String,Price:String},
-        // Hang_SX: String,
-        // Img: [String],
-        // Info:{
-        // InfoName:[String],
-        // InfoText:[String]
-        // },
-        // Ten:String,
-        // Web:String,
         catid: Number,
         itemid: Number,
         shopid: Number,

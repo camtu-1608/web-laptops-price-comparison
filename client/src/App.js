@@ -26,10 +26,10 @@ const App = () => {
         <div class='background'>
           <div class='search-title'>
               <div class= 'title'>
-                The Laptop Apps
+              Price Tracking and Product Reviews
               </div>
               <div class= 'subtitle'>
-                Search Laptops and Compare Prices
+                Search Products and Compare Prices
               </div>
           </div>
           <SearchBar />
