@@ -11,7 +11,7 @@ const FeClotherButton = () => {
 
     return(
         <button className="button-sandal" onClick={callFunctioForCategory}>
-            Quần Áo Nữ
+            Thời Trang Nữ
         </button>
     )
 }

@@ -18,7 +18,7 @@ exports.searchName = async(req,res) =>{
     else {
       res.send(findRes);
     }
-  }).sort({ score: { $meta: "textScore" } }).limit(50);
+  }).sort({ score: { $meta: "textScore" } }).limit(30);
 }
 
 exports.getCate = async(req,res) =>{
