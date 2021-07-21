@@ -8,8 +8,28 @@ import Spinner from "react-bootstrap/Spinner";
 import Plotly from "plotly.js-basic-dist";
 import { Scrollbars } from "rc-scrollbars";
 import createPlotlyComponent from "react-plotly.js/factory";
+import { Table } from "antd";
 const Plot = createPlotlyComponent(Plotly);
 var _ = require("lodash");
+
+const columns = [
+  {
+    title: "Comments",
+    dataIndex: "comments",
+    key: "comments",
+  },
+  {
+    title: "Rating Model",
+    dataIndex: "ratemodel",
+    key: "ratemodel",
+  },
+  {
+    title: "Rating Comment",
+    dataIndex: "ratecomment",
+    key: "ratecomment",
+  },
+];
+
 const ProductCard = (props, location) => {
   const myHeaders = new Headers({
     "Content-Type": "application/json",
@@ -40,9 +60,12 @@ const ProductCard = (props, location) => {
       setLoading(false);
     }
 
-    fetch("https://14ff255117e6.ngrok.io/rating/" + props.id+"/"+props.shopid, {
-      headers: myHeaders,
-    })
+    fetch(
+      "https://14ff255117e6.ngrok.io/rating/" + props.id + "/" + props.shopid,
+      {
+        headers: myHeaders,
+      }
+    )
       .then((response) => response.json())
       .then((jsonResponse) => {
         setChartInfor(jsonResponse);
@@ -78,7 +101,7 @@ const ProductCard = (props, location) => {
   const listGiaHTPrice = props.giaHT.map((item) => {
     var listPrice = [];
     // listPrice=parseInt(item.Price.replace(/[.]/g,""));
-    const fix=item.price*0.00001
+    const fix = item.price * 0.00001;
     listPrice = fix;
     return listPrice;
   });
@@ -86,7 +109,7 @@ const ProductCard = (props, location) => {
   // console.log(props.des.split("\n"));
   // const text = props.des.replace('\r\n', '');
   // console.log(text);
-
+  console.log(chartInfor.result);
   return (
     <Modal
       {...props}
@@ -162,9 +185,12 @@ const ProductCard = (props, location) => {
             <div>
               <div class="from-text">Chỉ từ</div>
               <div class="card-price">
-                {props.minPrice.toLocaleString('de-DE', { style: 'currency', currency: 'VND' })}
+                {props.minPrice.toLocaleString("de-DE", {
+                  style: "currency",
+                  currency: "VND",
+                })}
                 {/* <img class='logo'src={props.logo}></img> */}
-                <span class='noSale-text'>Số lượng bán: {props.no_sale}</span>
+                <span class="noSale-text">Số lượng bán: {props.no_sale}</span>
               </div>
               <Button
                 onClick={() => {
@@ -176,7 +202,9 @@ const ProductCard = (props, location) => {
               >
                 Visit site
               </Button>
-              <span class="dayUpdate-text">Ngày cập nhật giá: {props.dayUpdate}</span>
+              <span class="dayUpdate-text">
+                Ngày cập nhật giá: {props.dayUpdate}
+              </span>
             </div>
           ) : (
             <div>Not Available</div>
@@ -197,7 +225,11 @@ const ProductCard = (props, location) => {
                     },
                   ]}
                   layout={
-                    ({ width: 720, height: 400, title: "Biểu đồ giá theo thời gian" },
+                    ({
+                      width: 720,
+                      height: 400,
+                      title: "Biểu đồ giá theo thời gian",
+                    },
                     {
                       yaxis: {
                         //title: 'Percent',
@@ -210,31 +242,40 @@ const ProductCard = (props, location) => {
               </div>
             </Tab>
             <Tab class="pull-right" eventKey="details" title="Biểu đồ so sánh">
-              <Plot 
-              data={[
-                {
-                  x: ['Tích cực','Tiêu cực','Trung lập'],
-                  y: [chartInfor.positive_shopee,chartInfor.negative_shopee,chartInfor.neutral_shopee],
-                  name:'Shopee',
-                  type:"bar"
-                },
-                {
-                  x: ['Tích cực','Tiêu cực','Trung lập'],
-                  y: [chartInfor.positive_model,chartInfor.negative_model,chartInfor.neutral_model],
-                  name: 'Model',
-                  type: "bar"
+              <Plot
+                data={[
+                  {
+                    x: ["Tích cực", "Tiêu cực", "Trung lập"],
+                    y: [
+                      chartInfor.positive_shopee,
+                      chartInfor.negative_shopee,
+                      chartInfor.neutral_shopee,
+                    ],
+                    name: "Shopee",
+                    type: "bar",
+                  },
+                  {
+                    x: ["Tích cực", "Tiêu cực", "Trung lập"],
+                    y: [
+                      chartInfor.positive_model,
+                      chartInfor.negative_model,
+                      chartInfor.neutral_model,
+                    ],
+                    name: "Model",
+                    type: "bar",
+                  },
+                ]}
+                layout={
+                  ({ barmode: "group" },
+                  {
+                    title:
+                      "Biểu đồ so sánh đánh giá giữa rating shopee và dự đoán của model",
+                  })
                 }
-              ]}
-              layout={(
-                {barmode: "group"},{title:"Biểu đồ so sánh đánh giá giữa rating shopee và dự đoán của model"}
-              )}
               />
-              
             </Tab>
             <Tab class="pull-right" eventKey="table" title="Bảng thống kê">
-              <div class="row">
-                {cmtInfor.comment_product}
-              </div>
+              <Table dataSource={chartInfor.result} columns={columns} />;
             </Tab>
           </Tabs>
         </div>
