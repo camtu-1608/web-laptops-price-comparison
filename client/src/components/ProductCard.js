@@ -33,7 +33,7 @@ const ProductCard = (props, location) => {
       .then((jsonResponse) => {
         setChartInfor(jsonResponse);
       });
-  });
+  }, [laptop]);
 
   // console.log(cmtInfor);
 
@@ -217,11 +217,11 @@ const ProductCard = (props, location) => {
               />
               
             </Tab>
-            {/* <Tab class="pull-right" eventKey="test" title="Test">
+            <Tab class="pull-right" eventKey="table" title="Bảng thống kê">
               <div class="row">
                 {cmtInfor.comment_product}
               </div>
-            </Tab> */}
+            </Tab>
           </Tabs>
         </div>
       </div>
