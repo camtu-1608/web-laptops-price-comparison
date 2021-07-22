@@ -8,6 +8,7 @@ const DATA = "products";
 const products = new Schema(
     {
         catid: Number,
+        // catid: String,
         itemid: Number,
         shopid: Number,
         name: String,
@@ -31,6 +32,7 @@ const products = new Schema(
 );
 //products.index({Ten:'text',Hang_SX:'text'},{weights:{Ten:4}});
 products.index({name:'text'});
+// products.index({name:1});
 
 Products=mongoose.model('products',products)
 //products.plugin(textSearch);

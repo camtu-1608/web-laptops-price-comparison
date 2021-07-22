@@ -15,18 +15,18 @@ var _ = require("lodash");
 const columns = [
   {
     title: "Comments",
-    dataIndex: "comments",
-    key: "comments",
+    dataIndex: "comment_product",
+    key: "comment_product",
   },
   {
     title: "Rating Model",
-    dataIndex: "ratemodel",
-    key: "ratemodel",
+    dataIndex: "rating_model",
+    key: "rating_model",
   },
   {
     title: "Rating Comment",
-    dataIndex: "ratecomment",
-    key: "ratecomment",
+    dataIndex: "rating_comment",
+    key: "rating_comment",
   },
 ];
 
@@ -61,7 +61,7 @@ const ProductCard = (props, location) => {
     }
 
     fetch(
-      "https://14ff255117e6.ngrok.io/rating/" + props.id + "/" + props.shopid,
+      "https://865688d1c925.ngrok.io/rating/" + props.id + "/" + props.shopid,
       {
         headers: myHeaders,
       }
@@ -109,7 +109,7 @@ const ProductCard = (props, location) => {
   // console.log(props.des.split("\n"));
   // const text = props.des.replace('\r\n', '');
   // console.log(text);
-  console.log(chartInfor.result);
+  // console.log(chartInfor.result);
   return (
     <Modal
       {...props}

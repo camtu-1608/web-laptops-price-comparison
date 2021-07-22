@@ -18,7 +18,7 @@ exports.searchName = async(req,res) =>{
     else {
       res.send(findRes);
     }
-  }).sort({ score: { $meta: "textScore" } }).limit(30);
+  }).sort({ score: { $meta: "textScore" } }).lean().limit(30);
 }
 
 exports.getCate = async(req,res) =>{
@@ -35,7 +35,7 @@ exports.getCate = async(req,res) =>{
     else {
       res.send(findRes);
     }
-  }).sort({"historical_sold":-1}).limit(50);
+  }).sort({"historical_sold":-1}).lean().limit(25);
 }
 
 exports.TopTrending = async (req, res) => {
